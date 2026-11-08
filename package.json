@@ -1,0 +1,75 @@
+{
+  "name": "@plagtech/spraay-device-pay",
+  "version": "0.1.0",
+  "description": "Standalone x402 payment SDK for personal AI devices, wearables, and handheld assistants: USDC on Base with spending limits, authorization policies, and secure wallet signing.",
+  "author": "Plagtech",
+  "license": "MIT",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/plagtech/spraay-device-pay.git"
+  },
+  "bugs": {
+    "url": "https://github.com/plagtech/spraay-device-pay/issues"
+  },
+  "homepage": "https://github.com/plagtech/spraay-device-pay#readme",
+  "keywords": [
+    "x402",
+    "usdc",
+    "base",
+    "payments",
+    "ai-agents",
+    "wearables",
+    "spending-limits"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:integration": "vitest run --config vitest.integration.config.ts",
+    "prepublishOnly": "pnpm run build"
+  },
+  "dependencies": {
+    "@x402/core": "2.30.0",
+    "@x402/evm": "2.30.0",
+    "viem": "^2.57.16"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.5",
+    "@types/node": "^18.19.130",
+    "eslint": "^9.39.5",
+    "eslint-config-prettier": "^10.1.8",
+    "prettier": "^3.9.10",
+    "tsx": "^4.23.15",
+    "typescript": "~6.0.3",
+    "typescript-eslint": "^8.72.1",
+    "vite": "^6.4.5",
+    "vitest": "^3.2.7"
+  },
+  "packageManager": "pnpm@11.3.0"
+}
